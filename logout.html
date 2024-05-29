@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            animation: fadeIn 1s;
+        }
+
+        h1, p {
+            margin: 10px 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Logout Successful</h1>
+    <p>You have been logged out.</p>
+    <p>Redirecting to login page...</p>
+
+    <script>
+        setTimeout(function () {
+            document.body.style.animation = "fadeOut 1s forwards";
+        }, 2000); // Start fade-out animation after 2 seconds
+
+        setTimeout(function () {
+            window.location.href = "../login/index.html"; // Path to your login page
+        }, 3000); // Redirect after 3 seconds (3000 milliseconds)
+    </script>
+</body>
+
+</html>

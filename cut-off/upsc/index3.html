@@ -1,0 +1,298 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="shortcut icon" href="favicon.ico">
+	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic|Roboto:400,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="../css/animate.css">
+	<link rel="stylesheet" href="../css/icomoon.css">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/style.css">
+    <script src="../js/modernizr-2.6.2.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        #chartContainer {
+            height: 800px;
+            width: 50%;
+        }
+
+        .text {
+            padding: 20px;
+            margin-left: 20px;
+            width: 45%;
+        }
+
+        h1 {
+            color: #d9534f;
+            text-align: center;
+        }
+        h2 {
+            color: #d9534f;
+            text-align: center;
+        }
+
+        p {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 10px 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        p strong {
+            color: #5bc0de;
+        }
+        .categories{
+            flex-direction: row;
+        }
+
+        .categories ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .categories ul li {
+            display: inline-block;
+            margin-right: 20px; /* Adjust spacing between options */
+            position: relative;
+        }
+        
+        .dropdown-list {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            z-index: 1;
+        }
+        
+        .categories ul li:hover .dropdown-list {
+            display: block;
+        }
+        .categories ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+        
+        .categories ul li {
+            display: inline-block;
+            margin-right: 20px; /* Adjust spacing between options */
+            position: relative;
+        }
+        
+        .arrow {
+            margin-left: 5px; /* Adjust spacing between text and arrow */
+        }
+        
+        .dropdown-list {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            z-index: 1;
+            width: 200px; /* Adjust width as needed */
+            max-height: 300px; /* Adjust height as needed */
+            overflow-y: auto; /* Add scrollbar if content exceeds max-height */
+        }
+        
+        .categories ul li:hover .dropdown-list {
+            display: block;
+        }
+        
+        .dropdown-list li {
+            padding: 5px 10px; /* Adjust padding as needed */
+            white-space: nowrap;
+        }
+        
+        .dropdown-list li a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+        }
+        
+        .dropdown-list li a:hover {
+            background-color: #f0f0f0; /* Highlight on hover */
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                title: {
+                    text: "UPSC (CSE) PRELIMS/MAINS CUTOFF OF 2021"
+                },
+                axisY: {
+                    title: "Prelims Cut-off",
+                    titleFontColor: "#4F81BC",
+                    lineColor: "#4F81BC",
+                    labelFontColor: "#4F81BC",
+                    tickColor: "#4F81BC"
+                },
+                axisY2: {
+                    title: "Mains cut-off",
+                    titleFontColor: "#C0504E",
+                    lineColor: "#C0504E",
+                    labelFontColor: "#C0504E",
+                    tickColor: "#C0504E"
+                },
+                toolTip: {
+                    shared: true
+                },
+                legend: {
+                    cursor: "pointer",
+                    itemclick: toggleDataSeries
+                },
+                data: [{
+                    type: "column",
+                    name: "Prelims",
+                    legendText: "Prelims",
+                    showInLegend: true,
+                    dataPoints: [
+                        { label: "General", y: 87.54 },
+                        { label: "EWS", y: 80.14 },
+                        { label: "OBC", y: 89.12 },
+                        { label: "ST", y: 70.71 },
+                        { label: "SC", y: 75.41 },
+                        { label: "PWD-1", y: 68.02 }
+                    ]
+                },
+                {
+                    type: "column",
+                    name: "Mains  ",
+                    legendText: "Mains",
+                    axisYType: "secondary",
+                    showInLegend: true,
+                    dataPoints: [
+                        { label: "General", y: 745 },
+                        { label: "EWS", y: 713 },
+                        { label: "OBC", y: 707 },
+                        { label: "ST", y: 700 },
+                        { label: "SC", y: 700 },
+                        { label: "PWD-1", y: 688 }
+                    ]
+                }]
+            });
+            chart.render();
+
+            function toggleDataSeries(e) {
+                if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                    e.dataSeries.visible = false;
+                } else {
+                    e.dataSeries.visible = true;
+                }
+                chart.render();
+            }
+        }
+        
+    </script>
+    <script>
+      
+    </script>
+</head>
+<body>
+    <div id="fh5co-offcanvas">
+		<a href="#" class="fh5co-close-offcanvas js-fh5co-close-offcanvas"><span><i class="icon-cross3"></i> <span>Close</span></span></a>
+		<div class="fh5co-bio">
+			<figure>
+				<img src="../images/logo1.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive">
+			</figure>
+		</div>
+
+		<div class="fh5co-menu">
+			<div class="fh5co-box">
+				<h3 class="heading">Categories</h3>
+				<ul>
+                    <li><a href="../index.html">Home</a></li>
+					<li><a href="./hall/index.html">Headlines</a></li>
+					<li><a href="quiz.html">Quiz</a></li>
+					
+					<li><a href="./index.html">Cut-Off</a></li>
+					<li><a href="./login/index.html">Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<header id="fh5co-header">
+		<div class="container-fluid">
+			<div class="row">
+				<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+				<div class="col-lg-12 col-md-12 text-center">
+					<h1 id="fh5co-logo"><a href="../index.html">Daily News Analysis</a></h1>
+				</div>
+			</div>
+
+            
+            
+		</div>
+	</header>
+    <div class="container">
+        <div id="chartContainer"></div>
+        <div class="text">
+            <h1>UPSC Prelims/Mains Cut Off - 2021</h1>
+            <p>The total UPSC prelims marks are 400 marks. But it is to be noted that there is negative marking in IAS Prelims.</p>
+            <p>The total marks for the Mains are 1750, with an additional 275 marks for the interview.</p>
+            <h2>Category wise Cut-off:</h2>
+            <p>
+                <strong>General Category:</strong> <br>
+                The cut-off score for Prelims for the General category in 2021 was: <strong>87.54</strong> <br>
+                The cut-off score for Mains for the General category in 2020 was: <strong>736</strong>
+            </p>
+            <p>
+                <strong>OBC Category:</strong> <br>
+                The cut-off score for Prelims for the Other Backward Class (OBC) category in 2021 was: <strong>89.12</strong> <br>
+                The cut-off score for Mains for the Other Backward Class (OBC) category in 2021 was: <strong>698</strong>
+            </p>
+            <p>
+                <strong>ST Category:</strong> <br>
+                The cut-off score for Prelims for the Scheduled Tribe (ST) category in 2021 was: <strong>68.34</strong> <br>
+                The cut-off score for Mains for the Scheduled Tribe (ST) category in 2021 was: <strong>682</strong>
+            </p>
+            <p>
+                <strong>SC Category:</strong> <br>
+                The cut-off score for Prelims for the Scheduled Caste (SC) category in 2021 was: <strong>74.84</strong> <br>
+                The cut-off score for Mains for the Scheduled Caste (SC) category in 2021 was: <strong>680</strong>
+            </p>
+            <p>
+                <strong>PwD 1 Category:</strong> <br>
+                The cut-off score for Prelims for the Persons with Benchmark Disabilities (PwD 1) category in 2021 was: <strong>70</strong> <br>
+                The cut-off score for Mains for the Persons with Benchmark Disabilities (PwD 1) category in 2021 was: <strong>648</strong>
+            </p>
+            <p>
+                <strong>EWS Category:</strong> <br>
+                The cut-off score for Prelims for the Economically Weaker Section (EWS) category in 2021 was: <strong>77.55</strong> <br>
+                The cut-off score for Mains for the Economically Weaker Section (EWS) category in 2021 was: <strong>687</strong>
+            </p>
+        </div>
+    </div>
+    
+    <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
+	<script src="../js/jquery.easing.1.3.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/jquery.waypoints.min.js"></script>
+	<script src="../js/main.js"></script>
+</body>
+</html>

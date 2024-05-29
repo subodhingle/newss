@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login + Firebase Database</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #7d2ae8;
+            padding: 30px;
+        }
+        #content_container {
+            max-width: 500px;
+            width: 100%;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            border-radius: 10px;
+        }
+        #form_container {
+            text-align: center;
+        }
+        #form_header_container {
+            margin-bottom: 20px;
+        }
+        #form_header {
+            font-family: 'Bowlby One SC', cursive;
+            font-size: 24px;
+            color: #7d2ae8;
+        }
+        #form_content_inner_container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        #button_container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #7d2ae8;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #5b13b9;
+        }
+    </style>
+</head>
+<body>
+    <div id="content_container">
+        <div id="form_container">
+            <div id="form_header_container">
+                <p id="form_header">Login</p>
+            </div>
+            <div id="form_content_container">
+                <div id="form_content_inner_container">
+                    <input type="text" id="full_name" placeholder="Full name">
+                    <input type="email" id="email" placeholder="Email">
+                    <input type="password" id="password" placeholder="Password">
+                    <input type="text" id="phoneno" placeholder="Phone no">
+                    <div id="button_container">
+                        <button onclick="login()">Login</button>
+                        <button onclick="register()">Register</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <!-- Custom Script -->
+    <script src="index.js"></script>
+</body>
+</html>

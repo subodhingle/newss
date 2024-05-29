@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h2 {
+    margin-top: 30px;
+  }
+  
+  .exam-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .exam-list li {
+    margin-bottom: 10px;
+  }
+  

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- Google Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic|Roboto:400,300,700' rel='stylesheet' type='text/css'>
+	<!-- Animate -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon -->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<link rel="stylesheet" href="css/style.css">
+
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+    <div id="fh5co-offcanvas">
+		<a href="#" class="fh5co-close-offcanvas js-fh5co-close-offcanvas"><span><i class="icon-cross3"></i> <span>Close</span></span></a>
+		<div class="fh5co-bio">
+			<figure>
+				<img src="images/logo1.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive">
+			</figure>
+		</div>
+
+		<div class="fh5co-menu">
+			<div class="fh5co-box">
+				<h3 class="heading">Categories</h3>
+				<ul>
+                    <li><a href="../index.html">Home</a></li>
+					<li><a href="./hall/index.html">Headlines</a></li>
+					<li><a href="quiz.html">Quiz</a></li>
+					
+					<li><a href="./cut-off/index.html">Cut-Off</a></li>
+					<li><a href="./logout.html">Logout</a></li>
+				</ul>
+			</div>
+			
+		</div>
+	</div>
+	<!-- END #fh5co-offcanvas -->
+	<header id="fh5co-header">
+		
+		<div class="container-fluid">
+
+			<div class="row">
+				<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+				
+				<div class="col-lg-12 col-md-12 text-center">
+					<h1 id="fh5co-logo"><a href="index.html">Daily News Analysis</a></h1>
+				</div>
+
+			</div>
+		
+		</div>
+
+	</header>
+
+
+        <div class="container">
+
+            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header <?php echo $_SESSION['class']; ?>">
+                        <strong class="me-auto">Exam Instructions: Multiple-Choice Questions (MCQ)
+
+                            General Guidelines:
+                            
+                            This exam consists of multiple-choice questions.
+                            Each question has only one correct answer.
+                            Read each question carefully before selecting your answer.
+                            Ensure that you mark your answers clearly and legibly on the provided answer sheet.
+                            You must use a pencil to mark your answers on the answer sheet. Do not use pen or any other writing instrument.</strong>
+                        <button type="button" class="btn-close text-white" data-bs-dismiss="toast"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                    
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <h2 class="pt-4">Welcome to Quiz Dashboard</h2>
+                <div class="col-md-6">
+                    <div class="card m-5 p-3">
+                        <div class="card-body">
+                            <h3 class="card-title py-2">Test On Algorithms And Data Structures</h3>
+                            <a href="https://www.proprofs.com/quiz-school/ugc/story.php?title=online-test-on-algorithms-and-data-structures-icttrendsdsa01-5v7&id=4008344&ew=430" class="btn btn-warning m-2">Start the Quiz</a>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-md-6">
+                    <div class="card m-5 p-3">
+                        <div class="card-body">
+                            <h3 class="card-title py-2">Fundamental C Test</h3>
+                            <a href="https://www.proprofs.com/quiz-school/ugc/story.php?title=fundamental-c-test1-344&id=4008342&ew=430" class="btn btn-warning m-2">Start the Quiz</a>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-md-6">
+                    <div class="card m-5 p-3">
+                        <div class="card-body">
+                            <h3 class="card-title py-2">Aptitude Assessment Test</h3>
+                            <a href="https://www.proprofs.com/quiz-school/ugc/story.php?title=aptitude-pre-assessment-test-5bu&id=4008340&ew=430" class="btn btn-warning m-2">Start the Quiz</a>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-md-6">
+                    <div class="card m-5 p-3">
+                        <div class="card-body">
+                            <h3 class="card-title py-2">Start taking Quiz on GATE</h3>
+                            <a href="https://www.proprofs.com/quiz-school/ugc/story.php?title=gate-data-structure-quiz&id=4008337&ew=430" class="btn btn-warning m-2">Start the Quiz</a>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                
+            <div class="col-md-6">
+                <div class="card m-5 p-3">
+                    <div class="card-body">
+                        <h3 class="card-title py-2">Start taking Quiz For UPSC</h3>
+                        <a href="https://www.proprofs.com/quiz-school/ugc/story.php?title=upsc-prelims-mock-test-quiz-mcq&id=3982957&ew=430" class="btn btn-warning m-2">Start the Quiz</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </section>
+    <footer id="fh5co-footer">
+		<p><small>&copy; 2024. Daily News Analysis. All Rights Reserverd.</small></p>
+	</footer>
+
+
+	
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Main JS -->
+	<script src="js/main.js"></script>
+</body>
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> 
+</html>

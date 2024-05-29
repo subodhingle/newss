@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liked News</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+      }
+      
+      header {
+        background-color: #ffffff;
+        padding: 20px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .logo {
+        font-size: 1.8em;
+        font-weight: bold;
+        color: #333333;
+        text-decoration: none;
+      }
+      
+      .nav-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+      
+      .nav-links li {
+        margin-right: 20px;
+      }
+      
+      .nav-links a {
+        color: #333333;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-links a:hover {
+        color: #007bff;
+      }
+      
+      .container {
+        padding: 20px;
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+      
+      .news-card {
+        width: calc(50% - 20px); /* 50% width with 20px gap */
+        border: 1px solid #dddddd;
+        padding: 15px;
+        background-color: #ffffff;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+      
+      .news-card:hover {
+        transform: translateY(-5px);
+      }
+      
+      .news-image-container img {
+        max-width: 100%;
+        height: auto;
+      }
+      
+      .news-title {
+        font-size: 1.5em;
+        margin: 10px 0;
+        color: #333333;
+      }
+      
+      .news-description {
+        margin: 10px 0;
+        color: #666666;
+      }
+      
+      .view-button {
+        display: inline-block;
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+      
+      .view-button:hover {
+        background-color: #0056b3;
+      }
+      
+      .like-dislike-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+      }
+      
+      .like-button,
+      .dislike-button {
+        background: none;
+        border: none;
+        color: red;
+        font-size: 1.5em;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+      
+      .like-button:hover,
+      .dislike-button:hover {
+        color: #ff0000;
+      }
+      
+      .empty-message {
+        text-align: center;
+        color: #555555;
+        font-size: 1.2em;
+        margin-top: 50px;
+      }
+      h1 {
+        display: flex;
+        justify-content: center;
+      }
+    p{
+      display: flex;
+        justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="logo">Daily News Analysis</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../hall/index.html">Headlines</a></li>
+        <li><a href="../quiz.html">Quiz</a></li>
+        
+        <li><a href="../cut-off/index.html">Cutoff</a></li>
+        <li><a href="./logout.html">Logout</a></li>
+
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Welcome to User Dashboard</h1>
+    <p>Here you can see your saved news articles</p>
+    <div class="container" id="liked-news-container"></div>
+  </main>
+  <script>
+    const likedNewsContainer = document.getElementById('liked-news-container');
+    const likedNewsKey = 'likedNews';
+
+    const displayLikedNews = () => {
+      let likedNews = JSON.parse(localStorage.getItem(likedNewsKey)) || [];
+      likedNewsContainer.innerHTML = '';
+
+      likedNews.forEach((item, index) => {
+        let card = document.createElement("div");
+        card.classList.add("news-card");
+        card.innerHTML = `<div class="news-image-container">
+          <img src="${item.urlToImage || "./newspaper.jpg"}" alt="" />
+        </div>
+        <div class="news-content">
+          <div class="news-title">
+            ${item.title}
+          </div>
+          <div class="news-description">
+            ${item.description || item.content || ""}
+          </div>
+          <a href="${item.url}" target="_blank" class="view-button">Read More</a>
+          <div class="like-dislike-container">
+            <button class="like-button" onclick="likeNews(${index})" ${item.liked ? 'disabled' : ''}>
+              <i class="fas fa-heart"></i> Like
+            </button>
+            <button class="dislike-button" onclick="dislikeNews(${index})">
+              <i class="fas fa-thumbs-down"></i> Dislike
+            </button>
+          </div>
+        </div>`;
+        likedNewsContainer.appendChild(card);
+      });
+    };
+
+    const dislikeNews = (index) => {
+      let likedNews = JSON.parse(localStorage.getItem(likedNewsKey)) || [];
+      likedNews.splice(index, 1); // Remove the news item at the specified index
+      localStorage.setItem(likedNewsKey, JSON.stringify(likedNews));
+      displayLikedNews(); // Refresh the displayed liked news
+      alert("News disliked!");
+    };
+
+    const likeNews = (index) => {
+      let likedNews = JSON.parse(localStorage.getItem(likedNewsKey)) || [];
+      if (!likedNews[index].liked) {
+        likedNews[index].liked = true; // Mark the news item as liked
+        localStorage.setItem(likedNewsKey, JSON.stringify(likedNews));
+        displayLikedNews(); // Refresh the displayed liked news
+        alert("News already liked!");
+      } else {
+        alert("This news is already liked!");
+      }
+    };
+
+    window.onload    = () => {
+      displayLikedNews();
+    };
+  </script>
+  <script src="https://kit.fontawesome.com/cb14beeb09.js" crossorigin="anonymous"></script>
+</body>
+</html>
+
